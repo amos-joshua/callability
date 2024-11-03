@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+service CallabilitySwitchboard {
+  rpc InitiateCall(stream SenderUpEvent) returns (stream SenderDownEvent);
+  //rpc AnswerCall(stream ReceiverUpEvent) returns (stream ReceiverDownEvent);
+  rpc RespondToCall(ReceiverUpEvent) returns (ReceiverDownEvent);
+  rpc Health(ServerStatusInquiry) returns (ServerStatus);
+}
+
+message ServerStatusInquiry {
+}
+
+message ServerStatus {
+  string status = 1;
+}
+
+message ReceiverUpEvent {
+  string client_token_id = 1;
+  string call_uuid = 2;
+  oneof event {
+    ReceiverAck ack = 3;
+    ReceiverAccept accept = 4;
+    ReceiverReject reject = 5;
+  }
+}
+
+message ReceiverDownEvent {
+  oneof event {
+    Error error = 1;
+    HangUp hangup = 2;
+  }
+}
+
+message SenderCallStart {
+  string client_token_id = 1;
+  repeated string receiver_emails = 2;
+  uint32 urgency = 3;
+  string subject = 4;
+}
+
+message HangUp {
+  string reason = 1;
+}
+
+message ReceiverAck {
+}
+
+message ReceiverAccept {
+}
+
+message ReceiverReject {
+}
+
+message RecipientNotRegistered {
+}
+
+
+message Error {
+  ErrorCode errorCode = 1;
+  string message = 2;
+}
+
+enum ErrorCode {
+  clientAuthenticationFailed = 0;
+  serverError = 1;
+  noSuchSession = 2;
+}
+
+message SenderUpEvent {
+  oneof event {
+    SenderCallStart callStart = 1;
+    HangUp hangUp = 2;
+  }
+}
+
+message NoAnswer {
+}
+
+message SenderDownEvent {
+  oneof event {
+    ReceiverAck ack = 1;
+    ReceiverAccept accept = 2;
+    ReceiverReject reject = 3;
+    NoAnswer noAnswer = 4;
+    RecipientNotRegistered recipientNotRegistered = 5;
+    Error error = 6;
+  }
+}

@@ -1,0 +1,334 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:6944076959860031389",
+      "lastPropertyId": "10:3164737527787531100",
+      "name": "Contact",
+      "properties": [
+        {
+          "id": "1:4797974389121262987",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4067676655336361414",
+          "name": "uid",
+          "type": 9,
+          "flags": 2048,
+          "indexId": "1:1686384222914709342"
+        },
+        {
+          "id": "3:3278428346733798852",
+          "name": "firstName",
+          "type": 9
+        },
+        {
+          "id": "4:2701474082637558788",
+          "name": "lastName",
+          "type": 9
+        },
+        {
+          "id": "5:8200378885262805479",
+          "name": "displayName",
+          "type": 9
+        },
+        {
+          "id": "6:6030195380236839302",
+          "name": "emails",
+          "type": 30
+        },
+        {
+          "id": "7:6065505447691667030",
+          "name": "phoneNumbers",
+          "type": 30
+        },
+        {
+          "id": "9:5577847697950341711",
+          "name": "groupId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "2:1322581608779303167",
+          "relationTarget": "ContactGroup"
+        },
+        {
+          "id": "10:3164737527787531100",
+          "name": "lastUpdated",
+          "type": 10
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:623342047535073463",
+      "lastPropertyId": "7:8170122180827653762",
+      "name": "ContactGroup",
+      "properties": [
+        {
+          "id": "1:3267953463350534318",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4399505670719997120",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "7:8170122180827653762",
+          "name": "catchAll",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:1544121088343121460",
+      "lastPropertyId": "3:907976326563887372",
+      "name": "Preset",
+      "properties": [
+        {
+          "id": "1:2162912375215679472",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7123962742115210355",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:907976326563887372",
+          "name": "isDefault",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:6889067005642288145",
+      "lastPropertyId": "7:3651654160738864187",
+      "name": "PresetSetting",
+      "properties": [
+        {
+          "id": "1:4846185692338001918",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7710225874490288271",
+          "name": "groupId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "3:4061671674190655270",
+          "relationTarget": "ContactGroup"
+        },
+        {
+          "id": "3:2261782538641383298",
+          "name": "presetId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "4:2050292922020613238",
+          "relationTarget": "Preset"
+        },
+        {
+          "id": "4:3421411241372115713",
+          "name": "dbLeisureRingType",
+          "type": 6
+        },
+        {
+          "id": "5:6007246787829361482",
+          "name": "dbImportantRingType",
+          "type": 6
+        },
+        {
+          "id": "6:2081292153787650993",
+          "name": "dbUrgentRingType",
+          "type": 6
+        },
+        {
+          "id": "7:3651654160738864187",
+          "name": "ringTypeIndex",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:5694653980970039150",
+      "lastPropertyId": "10:6259722973386454594",
+      "name": "AppSettings",
+      "properties": [
+        {
+          "id": "1:1084802488026547885",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "4:8479580155334150912",
+          "name": "presetOverrideId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "7:8597281935757514098",
+          "relationTarget": "Preset"
+        },
+        {
+          "id": "5:8158678211183746753",
+          "name": "dbPresetOverrideStart",
+          "type": 6
+        },
+        {
+          "id": "6:4477458998925004896",
+          "name": "dbPresetOverrideEnd",
+          "type": 6
+        },
+        {
+          "id": "7:2206426523142701498",
+          "name": "performedFirstTimeInit",
+          "type": 1
+        },
+        {
+          "id": "8:158081905420880527",
+          "name": "currentSchemaVersion",
+          "type": 9
+        },
+        {
+          "id": "9:783240652877191185",
+          "name": "hasReceivePushNotificationsPermissions",
+          "type": 1
+        },
+        {
+          "id": "10:6259722973386454594",
+          "name": "hasNotificationPolicyAccessPermissions",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:1869482179239416967",
+      "lastPropertyId": "9:5443296225208206940",
+      "name": "Schedule",
+      "properties": [
+        {
+          "id": "1:7866024924279871091",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6027867139078458933",
+          "name": "days",
+          "type": 27
+        },
+        {
+          "id": "7:8963685049698036990",
+          "name": "presetId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "6:8068368354345458056",
+          "relationTarget": "Preset"
+        },
+        {
+          "id": "8:4425216391098293876",
+          "name": "dbStartTime",
+          "type": 6
+        },
+        {
+          "id": "9:5443296225208206940",
+          "name": "dbEndTime",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:8233981314861037736",
+      "lastPropertyId": "10:6481465086428102769",
+      "name": "Call",
+      "properties": [
+        {
+          "id": "1:1915357789870289324",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8898274894273294255",
+          "name": "contactId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "8:6229702043307957760",
+          "relationTarget": "Contact"
+        },
+        {
+          "id": "4:3530501171345621947",
+          "name": "startTime",
+          "type": 10
+        },
+        {
+          "id": "5:3612818594452294491",
+          "name": "endTime",
+          "type": 10
+        },
+        {
+          "id": "6:1571297385715848214",
+          "name": "answered",
+          "type": 1
+        },
+        {
+          "id": "7:5931826428070864864",
+          "name": "dbUrgency",
+          "type": 6
+        },
+        {
+          "id": "9:7479894640550873969",
+          "name": "subject",
+          "type": 9
+        },
+        {
+          "id": "10:6481465086428102769",
+          "name": "outgoing",
+          "type": 1
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "7:8233981314861037736",
+  "lastIndexId": "8:6229702043307957760",
+  "lastRelationId": "1:6011923766103352246",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [
+    6245552165894533172
+  ],
+  "retiredPropertyUids": [
+    7639260266059255394,
+    2427657954001712784,
+    5901387048335464011,
+    1749735545546734477,
+    8720918440528266766,
+    2845929881732879859,
+    6072970671994016592,
+    4925193238398785307,
+    940612800916972369,
+    6348588384467997228,
+    1533650121442825246,
+    778274461350221159,
+    7442593644884128938
+  ],
+  "retiredRelationUids": [
+    6011923766103352246
+  ],
+  "version": 1
+}

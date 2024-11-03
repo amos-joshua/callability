@@ -1,0 +1,6 @@
+*.pyc
+*~
+**/#*
+.idea
+firebase-service-account.json
+staging

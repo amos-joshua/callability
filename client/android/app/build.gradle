@@ -1,0 +1,73 @@
+plugins {
+    id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+Properties localProperties = new Properties()
+localProperties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+android {
+    namespace = "net.swiftllama.callability"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "net.swiftllama.callability"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = 30
+        targetSdk = 34
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("${rootDir}/../debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+        release {
+            storeFile file("${rootDir}/../callability-upload.keystore")
+            storePassword localProperties.get("CALLABILITY_UPLOAD_STORE_PASSWORD", "N/A")
+            keyAlias "callability-upload"
+            keyPassword localProperties.get("CALLABILITY_UPLOAD_STORE_PASSWORD", "N/A")
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            signingConfig signingConfigs.release
+        }
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
+    }
+
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.13.1'
+}

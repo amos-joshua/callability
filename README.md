@@ -31,8 +31,9 @@ The following features are on the roadmap but not yet implemented:
 
 ## Project architecture
 
-The client app is written in Dart/Flutter, the server in Python. Client-server communication
-is via grpc and push notifications
+The client app is written in Dart/Flutter, leveraging flutter_bloc and firebase, while
+the server is written in Python. Client-server communication is via grpc and push 
+notifications
 
 ## Client-server communication
 
@@ -89,6 +90,8 @@ The protobuf classes can be generated using:
 The server is written in Python. It listens to incoming grpc connections and uses Firebase for 
 server-side storage (realtime-database), auth (Google sign in) and push notifications (Firebase 
 cloud messaging).
+
+(Shout out to [b1r3k/python-poetry-boilerplate](https://github.com/b1r3k/python-poetry-boilerplate))
 
 #### Running the server locally
 

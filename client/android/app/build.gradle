@@ -38,13 +38,13 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file("${rootDir}/../debug.keystore")
+            storeFile file("${rootDir}/../conf/debug.keystore")
             storePassword "android"
             keyAlias "androiddebugkey"
             keyPassword "android"
         }
         release {
-            storeFile file("${rootDir}/../callability-upload.keystore")
+            storeFile file("${rootDir}/../conf/callability-upload.keystore")
             storePassword localProperties.get("CALLABILITY_UPLOAD_STORE_PASSWORD", "N/A")
             keyAlias "callability-upload"
             keyPassword localProperties.get("CALLABILITY_UPLOAD_STORE_PASSWORD", "N/A")

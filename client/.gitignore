@@ -1,0 +1,7 @@
+conf
+android/app/google-services.json
+lib/firebase_options.dart
+build
+android/gradle
+firebase.json
+*.sh

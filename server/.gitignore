@@ -4,3 +4,4 @@
 .idea
 firebase-service-account.json
 staging
+*.sh
